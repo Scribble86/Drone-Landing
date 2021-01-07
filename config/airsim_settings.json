@@ -1,0 +1,59 @@
+{
+  "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/master/docs/settings.md",
+  "SettingsVersion": 1.2,
+  "LogMessagesVisible": true,
+  "SimMode": "Multirotor",
+  "OriginGeopoint": {
+    "Latitude": -35.363261,
+    "Longitude": 149.165230,
+    "Altitude": 583
+  },
+    "CameraDefaults": 
+    {
+      "CaptureSettings": 
+      [
+        {
+          "ImageType": 0,
+          "Width": 1280,
+          "Height": 1024,
+          "FOV_Degrees": 85,
+          "AutoExposureSpeed": 30,
+          "MotionBlurAmount": 0
+        }
+    ]
+    },
+    "NoiseSettings": [
+      {
+        "Enabled": true,
+        "ImageType": 0,
+
+        "RandContrib": 0.2,
+        "RandSpeed": 100000.0,
+        "RandSize": 500.0,
+        "RandDensity": 2,
+
+        "HorzWaveContrib":0.03,
+        "HorzWaveStrength": 0.08,
+        "HorzWaveVertSize": 1.0,
+        "HorzWaveScreenSize": 1.0,
+
+        "HorzNoiseLinesContrib": 1.0,
+        "HorzNoiseLinesDensityY": 0.01,
+        "HorzNoiseLinesDensityXY": 0.5,
+
+        "HorzDistortionContrib": 1.0,
+        "HorzDistortionStrength": 0.002
+      }
+    ],
+  "Vehicles": {
+    "Copter": {
+      "VehicleType": "ArduCopter",
+      "UseSerial": false,
+      "LocalHostIp": "127.0.0.1",
+      "UdpIp": "127.0.0.1",
+      "UdpPort": 9003,
+      "ControlPort": 9002
+  }
+  }
+}
+

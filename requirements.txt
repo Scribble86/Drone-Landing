@@ -1,0 +1,25 @@
+# This file lists pip dependencies. Put each dependency on its own line.
+# It is also possible to specify a version, e.g. numpy==1.0.0
+#
+# You can install all pip deps with the following command:
+#
+#     pip install -r requirements.txt
+
+pymavlink
+# Also requires shared libraries on Linux and possibly on Mac
+# Ubuntu:
+#   apt install gcc python3-dev libxml2-dev libxslt-dev
+
+scikit-learn==0.22.2.post1
+numpy
+
+opencv-python
+shapely
+
+# Also requires shared libraries on Linux
+# Ubuntu:
+#   apt install python3-tk python3-dev
+airsim
+dronekit
+simple_pid
+Pillow

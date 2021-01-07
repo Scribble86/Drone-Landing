@@ -1,0 +1,8 @@
+.idea/
+venv/
+.vscode/
+.coverage
+coverage_html_report/
+coverage.xml
+.pytest_cache/
+/virtualenv/

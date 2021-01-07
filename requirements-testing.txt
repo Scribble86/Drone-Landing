@@ -1,0 +1,6 @@
+# This file contains pip dependencies that are only used in testing, not in
+# running the software manually. That is, if the dependency is used in testing,
+# but not in normal operation, put it in this file.
+
+pytest
+coverage

@@ -1,0 +1,28 @@
+image: "ubuntu"
+  
+stages:
+  - test
+
+test:
+  stage: test
+  before_script:
+    - apt-get update
+    - apt-get upgrade --assume-yes
+    - sh install-deps-ubuntu.sh
+    - python3 --version
+    - python3 -m venv venv
+    - source venv/bin/activate
+    - pip install --upgrade pip setuptools wheel
+    - pip install --prefer-binary --requirement requirements.txt --requirement requirements-testing.txt
+  script:
+    - coverage run --rcfile='.coveragerc' --module pytest tests/
+    - coverage xml -o coverage.xml
+    - coverage html --directory=coverage_html_report/
+    - coverage report
+  coverage: '/^TOTAL.+?(\d+(?:\.\d+)?%)$/'
+  artifacts:
+    paths:
+      - coverage_html_report/
+      - coverage.xml
+    reports:
+      cobertura: coverage.xml

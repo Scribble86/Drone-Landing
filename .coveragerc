@@ -1,0 +1,13 @@
+# .coveragerc to control coverage.py
+[run]
+branch = True
+concurrency = thread
+data_file = .coverage
+source = precision_drone_landing/
+relative_files = True
+
+[report]
+precision = 2
+
+[html]
+directory = coverage_html_report

@@ -4,7 +4,6 @@ import pickle
 from datetime import datetime
 from functools import partial
 from typing import Optional
-
 import numpy as np
 import vg
 from sklearn.metrics import r2_score
@@ -136,7 +135,7 @@ def generate_displacement_model(existing_model=None):
         )
         print('Generated new model')
     testing_input, testing_true_output = generate_learning_data(100000, *xyz_range)
-    print('Starting training...')
+    print('Generating Training Data...')
     input_data, true_output = generate_learning_data(n, *xyz_range)
     print('Fitting regressor, this can take a while (as in hours)...')
     regressor.fit(X=input_data, y=true_output)

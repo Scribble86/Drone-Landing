@@ -24,6 +24,8 @@ class TargetFinder:
         self.recognizer = Recognizer()
         self.handler = TargetHandler()
         self.camera_input = CameraInput()
+        # disable preview when not in simulation. Comment the following line and
+        # references to preview_output in loop_body.
         self.preview_output = PreviewOutput()
         self.displacement_estimator = DisplacementEstimator()
         self.horizontal_field_of_view = HORIZONTAL_FIELD_OF_VIEW
@@ -81,6 +83,7 @@ class TargetFinder:
                 rotation_estimate = self.displacement_estimator.estimate_rotation(qr_codes[0].points)
                 average_displacement = np.mean(displacement_estimates, axis=0)
                 self.preview_output.set_estimated_distance(average_displacement)
+                # print(average_displacement)
                 for code, displacement in zip(qr_codes, displacement_estimates):
                     drone_space_displacement = self.displacement_estimator.target_to_drone_space(
                         vector=displacement,

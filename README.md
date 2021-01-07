@@ -11,8 +11,7 @@ For instructions on how to set up an environment for development, see:
 
 ## Installation
 
-* [Setting up the software on the Raspberry Pi](docs/deployment_setup.md)
-* [Running the Deployment Environment](docs/deployment_running.md)
+Instructions on how to install on drone hardware have yet to be written.
 
 ## Other Documentation
 

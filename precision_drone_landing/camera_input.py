@@ -1,8 +1,7 @@
-from typing import Optional
-
-import airsim
+# import airsim
 import numpy as np
-
+import cv2
+from typing import Optional
 
 class CameraInput:
     """
@@ -11,9 +10,15 @@ class CameraInput:
     the format that OpenCV requires for processing.
     """
     def __init__(self):
-        self._drone = airsim.MultirotorClient()
+        """Recieves input from the simulated drone's camera."""
+        # self._drone = airsim.MultirotorClient()
+        self._drone = cv2.VideoCapture(0)
 
-    def get_frame(self) -> Optional[np.ndarray]:
+    def get_frame(self):
+        ret, frame = self._drone.read()
+        return frame
+
+    def get_frame_airsim(self) -> Optional[np.ndarray]:
         """Retrieves a single frame from the drone's camera in simulation.
 
         Each call to this function will return the newest frame. Thus, if this

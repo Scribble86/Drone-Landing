@@ -37,7 +37,7 @@ class DisplacementEstimator:
         if regressor:
             self._regressor = regressor
         else:
-            model_path = Path('../assets/displacement_detection_models/regressor.pkl')
+            model_path = Path('regressor.pkl')
             with open(model_path, 'rb') as model_file:
                 try:
                     self._regressor = pickle.load(model_file)
@@ -47,13 +47,13 @@ class DisplacementEstimator:
         if levels:
             self.levels = levels
         else:
-            levels_path = Path('../config/qr_sizes.json')
+            levels_path = Path('qr_sizes.json')
             with open(levels_path, 'r') as levels_file:
                 self.levels = json.load(levels_file)
 
     def get_hull_angles(
             self,
-            hull: Iterable[Iterable[float]],
+            hull,
             image_height: int,
             image_width: int):
         """Calculate the hull angles given the four corners of the hull and some information about the image.
@@ -100,7 +100,7 @@ class DisplacementEstimator:
         # Finally, we apply the cosine similarity formula to arrive at the list of angles
 
     @staticmethod
-    def estimate_rotation(hull: Iterable[Iterable[int]]):
+    def estimate_rotation(hull):
         """Estimate the rotation of the drone relative to the target.
 
         This is a heuristic based on the angle of a diagonal.
@@ -123,7 +123,7 @@ class DisplacementEstimator:
 
     def estimate_displacement(
             self,
-            hull_angles: Iterable[Iterable[float]],
+            hull_angles,
             level: str = '0'):
         """Calculate the displacement vector from the target to the camera.
 

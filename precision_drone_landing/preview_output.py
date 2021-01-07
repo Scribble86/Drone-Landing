@@ -111,3 +111,13 @@ class PreviewOutput:
             color=(0, 0, 255),
             fontScale=0.5
         )
+
+if __name__ == '__main__':
+    import camera_input as cam
+    camera = cam.CameraInput()
+    display = PreviewOutput()
+    while True:
+        frame = camera.get_frame()
+        display.set_image(frame)
+        display.output = display.image
+        display.display_image()

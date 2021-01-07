@@ -50,7 +50,7 @@ class PositionAggregator:
         self.lastSeen = None
 
     @staticmethod
-    def estimate_layer_position(targets: Iterable[Target]):
+    def estimate_layer_position(targets):
         """Get a weighted average of previously seen positions.
 
         Newer positions are weighted more heavily.
